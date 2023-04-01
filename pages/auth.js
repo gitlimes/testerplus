@@ -42,7 +42,7 @@ export async function getServerSideProps(ctx) {
 			const guild = await client.guilds.fetch('408718485913468928');
 			const member = await guild.members.fetch(userID);
 			const role = await guild.roles.fetch('1091398279998230668');
-			member.roles.add(role);
+			await member.roles.add(role);
 		} catch (e) {
 			console.log(e);
 		}
