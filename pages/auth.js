@@ -24,6 +24,8 @@ export async function getServerSideProps(ctx) {
 		},
 	}).then(res => res.json()).then(e => e.access_token);
 
+	console.log(token);
+
 	const userID = await fetch('https://discord.com/api/users/@me', {
 		headers: {
 			'Authorization': `Bearer ${token}`,
