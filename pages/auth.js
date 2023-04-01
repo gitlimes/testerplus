@@ -7,7 +7,7 @@ export async function getServerSideProps(ctx) {
 
 	const code = ctx.query.code;
 
-	const token = 'bEbFiHMDvsWsxbdNYv4jQSlbXeXZlt' || await fetch('https://discord.com/api/oauth2/token', {
+	const token = await fetch('https://discord.com/api/oauth2/token', {
 		method: 'POST',
 		body: new URLSearchParams({
 			client_id: process.env.DC_CLIENTID,
