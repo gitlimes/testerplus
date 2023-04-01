@@ -81,19 +81,19 @@
 	},
 	"showcase" : [
 		{
-			"title": "Online play.",
-			"caption": "Dash down Mount Wario on Wii U, [some 3DS stuff we have implemented], upload a course to Mario Maker on CEMU and more, online with Pretendo Network!",
-			"image": "network"
+			"title": "Discord channels!",
+			"caption": "Get access to exclusive Discord chats, where you'll get to experience the unparalleled professionality, determination, and brilliance of our world-renowned team.",
+			"image": "chats"
 		},
 		{
-			"title": "Juxtaposition.",
-			"caption": "Juxtaposition is our reimagining of Miiverse for the modern era. With a refreshingly modern design and in-game posting support, insert text insert text insert text insert text insert text!",
+			"title": "Juxt 4.",
+			"caption": "Juxt 4 is our reimagining of Juxtaposition for the modern era. With a refreshingly modern design and in-game posting support, it's better than, like, anything Nintendo has ever made!",
 			"image": "juxt"
 		},
 		{
-			"title": "Emulators.",
-			"caption": "See you later, emulator! I wish I had something to put here instead of dummy text, and yet...",
-			"image": "pcmouse"
+			"title": "Earth.",
+			"caption": "We made it ourselves.",
+			"image": "natureorsmth"
 		}
 	],
 	"credits": {

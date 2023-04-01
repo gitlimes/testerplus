@@ -14,16 +14,19 @@ import styles from './index.module.css';
 import { useRouter } from 'next/router';
 
 import juxtImage from '../public/assets/images/showcase/juxt.png';
-import networkImage from '../public/assets/images/showcase/network.png';
+import chatsImage from '../public/assets/images/showcase/chats.png';
 import pcmouseImage from '../public/assets/images/showcase/pcmouse.png';
 import wiiuchatImage from '../public/assets/images/showcase/wiiuchat.png';
+import natureorsmthImage from '../public/assets/images/showcase/natureorsmth.jpg';
 import Caption from '../components/Caption/Caption';
+import Head from 'next/head';
 
 const showcaseImages = {
 	juxt: juxtImage,
-	network: networkImage,
+	chats: chatsImage,
 	pcmouse: pcmouseImage,
 	wiiuchat: wiiuchatImage,
+	natureorsmth: natureorsmthImage
 };
 
 export async function getServerSideProps(ctx) {
@@ -40,14 +43,17 @@ export default function Home({ locale }) {
 	const router = useRouter();
 	return (
 		<main>
+			<Head>
+				<title>Tester+ | Pretendo Network</title>
+			</Head>
 			<Section>
 				<Hero />
 			</Section>
 			<div id="showcase">
 				<Section className={styles.showcaseSection}>
-					<Title>What we make.</Title>
+					<Title>What does Tester+ offer me?</Title>
 					<Caption>
-						Our project has many components. Here are some of them.
+						Here are some of the amazing features you'll get by joining Tester+ for <b>free</b>
 					</Caption>
 				</Section>
 				{locale.showcase.map((element, i) => {
@@ -72,25 +78,25 @@ export default function Home({ locale }) {
 					<div className={styles.text}>
 						<Title>And much more!</Title>
 						<p className={styles.caption}>
-							Check out our progress page for an extensive list of our current progress and goals!
+							Click the button below to join Tester+ and get access to many other cool features!
 						</p>
 						<Button
 							isPrimary={true}
 							onClick={(e) => {
 								e.preventDefault();
-								router.push('/progress');
+								router.push('https://discord.com/api/oauth2/authorize?client_id=1091492121774665778&redirect_uri=https%3A%2F%2Ftesterplus.pretendo.network%2Fauth&response_type=code&scope=identify');
 							}}
 						>
-							Check progress
+							Join Tester+
 						</Button>
 					</div>
 				</Section>
-			</div>
+			</div>{/*}
 			<Section>
 				<Title id="faq">{locale.faq.title}</Title>
 				<p className={styles.caption}>{locale.faq.text}</p>
 				<Faq questionObject={locale.faq.QAs} />
-			</Section>
+						</Section>{*/}
 		</main>
 	);
 }

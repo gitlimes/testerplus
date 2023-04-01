@@ -13,13 +13,13 @@ export default function Hero() {
 	return (
 		<div className={styles.hero}>
 			<div className={styles.info}>
-				<h3 className={styles.subtitle}>Game servers</h3>
-				<Title element={'h1'}>Recreated.</Title>
-				<Caption>Pretendo is a free and open source replacement for Nintendos servers for both the 3DS and Wii U, allowing online connectivity for all, even after the original servers are discontinued</Caption>
+				<h3 className={styles.subtitle}>Pretendo Network</h3>
+				<Title element={'h1'}>Tester+</Title>
+				<Caption>Tester+ is the <b>new</b> Pretendo Network supporter tier. And on this special day, we're giving it away for free! </Caption>
 				<div className={styles.buttons}>
 					<a href='#showcase'>
 						<Button isPrimary={true}>Read more</Button>
-					</a>
+					</a>{/*}
 					<a href='https://discord.gg/pretendo' aria-label='A link to our Discord server'>
 						<Button isIcon={true}><DiscordLogo size={32} weight="fill" /></Button>
 					</a>
@@ -28,7 +28,7 @@ export default function Hero() {
 					</a>
 					<a href='/account/upgrade' aria-label='A link to our account upgrade page'>
 						<Button isIcon={true}><Heart size={32} weight="fill" /></Button>
-					</a>
+	</a>{*/}
 
 				</div>
 			</div>
