@@ -89,7 +89,7 @@ export default function Home({ locale, rickrolledUsers }) {
 					<div className={styles.text}>
 						<Title>And much more!</Title>
 						<p className={styles.caption}>
-							Click the button below to join {rickrolledUsers} other Tester+ and get access to many other cool features!
+							Click the button below to join {rickrolledUsers} other Testers+ and get access to many other cool features!
 						</p>
 						<Button
 							isPrimary={true}
