@@ -53,7 +53,7 @@ export default function Home({ locale }) {
 				<Section className={styles.showcaseSection}>
 					<Title>What does Tester+ offer me?</Title>
 					<Caption>
-						Here are some of the amazing features you'll get by joining Tester+ for <b>free</b>
+						Here are some of the amazing features you&apos;ll get by joining Tester+ for <b>free</b>
 					</Caption>
 				</Section>
 				{locale.showcase.map((element, i) => {

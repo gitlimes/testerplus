@@ -15,7 +15,7 @@ export default function Hero() {
 			<div className={styles.info}>
 				<h3 className={styles.subtitle}>Pretendo Network</h3>
 				<Title element={'h1'}>Tester+</Title>
-				<Caption>Tester+ is the <b>new</b> Pretendo Network supporter tier. And on this special day, we're giving it away for free! </Caption>
+				<Caption>Tester+ is the <b>new</b> Pretendo Network supporter tier. And on this special day, we&apos;re giving it away for free! </Caption>
 				<div className={styles.buttons}>
 					<a href='#showcase'>
 						<Button isPrimary={true}>Read more</Button>
