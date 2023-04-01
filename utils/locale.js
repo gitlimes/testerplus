@@ -1,6 +1,6 @@
 import fs from 'fs-extra';
 import merge from 'lodash.merge';
-import logger from './logger.js';
+//import logger from './logger.js';
 
 import baseLocale from '../locales/en_US.json' assert {type: 'json'};
 
@@ -14,7 +14,7 @@ function getLocale(code) {
 
 		return finalLocale;
 	} else {
-		logger.warn(`Could not find locale ${localeCode}! Loading en_US`);
+		//logger.warn(`Could not find locale ${localeCode}! Loading en_US`);
 		return baseLocale;
 	}
 };
