@@ -30,6 +30,8 @@ export async function getServerSideProps(ctx) {
 		},
 	}).then(res => res.json()).then(e => e.id);
 
+	console.log(userID);
+
 	const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers] });
 
 	client.once(Events.ClientReady, async c => {
