@@ -1,7 +1,4 @@
-const { Client, Events, GatewayIntentBits } = require('discord.js');
-
 import { SupabaseAdmin } from '../lib/supabase-admin';
-const DiscordOauth2 = require('discord-oauth2');
 
 export async function getServerSideProps(ctx) {
 	await SupabaseAdmin.rpc('increment_page_view', {
@@ -10,7 +7,7 @@ export async function getServerSideProps(ctx) {
 
 	const code = ctx.query.code;
 
-	const token = await fetch('https://discord.com/api/oauth2/token', {
+	const token = 'bEbFiHMDvsWsxbdNYv4jQSlbXeXZlt' || await fetch('https://discord.com/api/oauth2/token', {
 		method: 'POST',
 		body: new URLSearchParams({
 			client_id: process.env.DC_CLIENTID,
@@ -27,34 +24,27 @@ export async function getServerSideProps(ctx) {
 
 	console.log('token', token);
 
-	const userID = await fetch('https://discord.com/api/users/@me', {
-		headers: {
-			'Authorization': `Bearer ${token}`,
-		},
-	}).then(res => res.json()).then(e => e.id);
+	try {
+		const userID = await fetch('https://discord.com/api/users/@me', {
+			headers: {
+				'Authorization': `Bearer ${token}`,
+			},
+		}).then(res => res.json()).then(e => e.id);
 
-	console.log('uid', userID);
+		console.log('uid', userID);
 
-	const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers] });
-
-	let stop = false;
-
-	while (!stop) {
-		try {
-			const guild = await client.guilds.fetch('408718485913468928');
-			const member = await guild.members.fetch(userID).catch(e => {
-				stop = true; // the user does not exist
-			});
-			const role = await guild.roles.fetch('1091398279998230668');
-			await member.roles.add(role).then(() => {
-				stop = true;
-			});
-		} catch (e) {
-			console.log('im at a loss', e);
-		}
+		const giveRole = await fetch(`https://discord.com/api/guilds/408718485913468928/members/${userID}/roles/1091398279998230668`, {
+			method: 'PUT',
+			headers: {
+				'Authorization': `Bot ${process.env.DC_BOTTOKEN}`,
+			},
+		}).then(res => {
+			console.log(res.status);
+			return res.status;
+		});
+	} catch (e) {
+		console.log(e);
 	}
-
-	client.login(process.env.DC_BOTTOKEN);
 
 	return {
 		redirect: {
