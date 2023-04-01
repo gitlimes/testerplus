@@ -13,6 +13,8 @@ import styles from './index.module.css';
 
 import { useRouter } from 'next/router';
 
+import { SupabaseAdmin } from '../lib/supabase-admin';
+
 import juxtImage from '../public/assets/images/showcase/juxt.png';
 import chatsImage from '../public/assets/images/showcase/chats.png';
 import pcmouseImage from '../public/assets/images/showcase/pcmouse.png';
@@ -32,14 +34,23 @@ const showcaseImages = {
 export async function getServerSideProps(ctx) {
 	const locale = getLocale(ctx.locale);
 
+	const {
+		data: {
+			[0]: { view_count: rickrolledUsers },
+		},
+	} = await SupabaseAdmin.from('pages')
+		.select('view_count')
+		.filter('slug', 'eq', 'pretendo-rickroll');
+
 	return {
 		props: {
 			locale,
+			rickrolledUsers
 		},
 	};
 }
 
-export default function Home({ locale }) {
+export default function Home({ locale, rickrolledUsers }) {
 	const router = useRouter();
 	return (
 		<main>
@@ -78,7 +89,7 @@ export default function Home({ locale }) {
 					<div className={styles.text}>
 						<Title>And much more!</Title>
 						<p className={styles.caption}>
-							Click the button below to join Tester+ and get access to many other cool features!
+							Click the button below to join {rickrolledUsers} other Tester+ and get access to many other cool features!
 						</p>
 						<Button
 							isPrimary={true}
