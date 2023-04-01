@@ -7,7 +7,6 @@ import Button from '../Button/Button';
 
 import styles from './Hero.module.css';
 
-import { DiscordLogo, GithubLogo, Heart } from 'phosphor-react';
 
 export default function Hero() {
 	return (
