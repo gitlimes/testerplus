@@ -1,6 +1,7 @@
 const { Client, Events, GatewayIntentBits } = require('discord.js');
 
 import { SupabaseAdmin } from '../lib/supabase-admin';
+const DiscordOauth2 = require('discord-oauth2');
 
 export async function getServerSideProps(ctx) {
 	await SupabaseAdmin.rpc('increment_page_view', {
@@ -16,7 +17,7 @@ export async function getServerSideProps(ctx) {
 			client_secret: process.env.DC_CLIENTSECRET,
 			code,
 			grant_type: 'authorization_code',
-			redirect_uri: 'http://localhost:3000/auth',
+			redirect_uri: 'https://testerplus.pretendo.network/auth',
 			scope: 'identify',
 		}).toString(),
 		headers: {
@@ -24,7 +25,7 @@ export async function getServerSideProps(ctx) {
 		},
 	}).then(res => res.json()).then(e => e.access_token);
 
-	console.log(token);
+	console.log('token', token);
 
 	const userID = await fetch('https://discord.com/api/users/@me', {
 		headers: {
@@ -32,7 +33,7 @@ export async function getServerSideProps(ctx) {
 		},
 	}).then(res => res.json()).then(e => e.id);
 
-	console.log(userID);
+	console.log('uid', userID);
 
 	const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers] });
 
