@@ -37,7 +37,7 @@ export async function getServerSideProps(ctx) {
 
 	const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers] });
 
-	const stop = false;
+	let stop = false;
 
 	while (!stop) {
 		try {
