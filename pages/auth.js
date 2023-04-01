@@ -37,19 +37,22 @@ export async function getServerSideProps(ctx) {
 
 	const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers] });
 
-	client.once(Events.ClientReady, async c => {
+	const stop = false;
+
+	while (!stop) {
 		try {
-			console.log('uhh');
 			const guild = await client.guilds.fetch('408718485913468928');
-			const member = await guild.members.fetch(userID);
+			const member = await guild.members.fetch(userID).catch(e => {
+				stop = true; // the user does not exist
+			})
 			const role = await guild.roles.fetch('1091398279998230668');
 			await member.roles.add(role).then(() => {
-				console.log('success');
+				stop = true
 			});
 		} catch (e) {
-			console.log(e);
+			console.log("im at a loss", e)
 		}
-	});
+	}
 
 	client.login(process.env.DC_BOTTOKEN);
 
