@@ -73,7 +73,7 @@ export default function Home({ locale }) {
 						className={styles.image}
 						alt=""
 						quality={100}
-						sizes="(max-width: 840px) 100vw, 700px"
+						sizes="(max-width: 840px) 80vw, 700px"
 					/>
 					<div className={styles.text}>
 						<Title>And much more!</Title>

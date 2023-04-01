@@ -17,12 +17,11 @@ export default function Document() {
 				<meta name="theme-color" content="#1b1f3b" />
 
 				{/* opengraph */}
+				<meta property="og:title" content="Pretendo Network" />
+				<meta property="og:description" content="An open source Nintendo Network replacement that aims to build custom servers for the WiiU and 3DS family of consoles" />
 				<meta property="og:type" content="website" />
 				<meta property="og:url" content="https://pretendo.network/" />
-				<meta
-					property="og:image"
-					content="https://pretendo.network/assets/images/opengraph/opengraph-image.png"
-				/>
+				<meta property="og:image" content="https://pretendo.network/assets/images/opengraph/opengraph-image.png" />
 				<meta property="og:image:alt" content="Pretendo Network" />
 				<meta property="og:site_name" content="Pretendo Network" />
 
@@ -30,7 +29,9 @@ export default function Document() {
 				<meta name="twitter:url" content="https://pretendo.network/" />
 				<meta name="twitter:card" content="summary_large_image" />
 				<meta name="twitter:site" content="@PretendoNetwork" />
-				<meta name="twitter:creator" content="@PretendoNetwork" />
+				<meta name="twitter:title" content="Pretendo Network" />
+				<meta name="twitter:description" content="An open source Nintendo Network replacement that aims to build custom servers for the WiiU and 3DS family of consoles" />
+				<meta name="twitter:image" content="https://pretendo.network/assets/images/opengraph/opengraph-image.png" />
 
 				{/* seo */}
 				<meta name="robots" content="index, follow" />

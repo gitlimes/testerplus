@@ -8,6 +8,8 @@
 .showcaseSection {
 	position: relative;
 	padding-bottom: 0;
+	overflow-x: clip;
+	overflow-y: visible;
 }
 
 .showcaseSection::after {
