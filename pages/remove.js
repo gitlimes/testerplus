@@ -2,6 +2,8 @@ import Title from '../components/Title/Title';
 import Section from '../components/Section/Section';
 import Caption from '../components/Caption/Caption';
 
+import Link from 'next/link';
+
 const authURL = 'https://discord.com/api/oauth2/authorize?client_id=1091492121774665778&redirect_uri=https%3A%2F%2Ftesterplus.pretendo.network%2Fremove&response_type=code&scope=identify';
 
 export async function getServerSideProps(ctx) {
@@ -79,7 +81,7 @@ export default function Auth({ takeRole, user }) {
 				:
 				<>
 					<Title>Failed to remove role.</Title>
-					<Caption>If <b>{user.username}#{user.discriminator}</b> is the correct account, <a href="/remove">try again</a>.</Caption>
+					<Caption>If <b>{user.username}#{user.discriminator}</b> is the correct account, <Link href="/remove">try again</Link>.</Caption>
 				</>
 			}
 		</Section>
