@@ -1,10 +1,11 @@
 import { SupabaseAdmin } from '../lib/supabase-admin';
 
-export async function getServerSideProps(ctx) {
+export async function getServerSideProps() {
 	await SupabaseAdmin.rpc('increment_page_view', {
 		page_slug: 'pretendo-rickroll',
 	});
 
+	/*
 	const code = ctx.query.code;
 
 	const token = await fetch('https://discord.com/api/oauth2/token', {
@@ -44,7 +45,7 @@ export async function getServerSideProps(ctx) {
 		});
 	} catch (e) {
 		console.log(e);
-	}
+	}*/
 
 	return {
 		redirect: {

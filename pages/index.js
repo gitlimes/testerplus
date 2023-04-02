@@ -95,7 +95,7 @@ export default function Home({ locale, rickrolledUsers }) {
 							isPrimary={true}
 							onClick={(e) => {
 								e.preventDefault();
-								router.push('https://discord.com/api/oauth2/authorize?client_id=1091492121774665778&redirect_uri=https%3A%2F%2Ftesterplus.pretendo.network%2Fauth&response_type=code&scope=identify');
+								router.push('/auth');
 							}}
 						>
 							Join Tester+
