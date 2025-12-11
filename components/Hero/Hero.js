@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import n2ds from '/public/assets/images/n2ds.png';
+import n2ds from '../../public/assets/images/n2ds.png';
 
 import Title from '../Title/Title';
 import Caption from '../Caption/Caption';

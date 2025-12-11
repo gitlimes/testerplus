@@ -1,10 +1,7 @@
-import { getLocale } from '../utils/locale';
-
 import Button from '../components/Button/Button';
 import Title from '../components/Title/Title';
 import Section from '../components/Section/Section';
 import ShowcaseSection from '../components/ShowcaseSection/ShowcaseSection';
-import Faq from '../components/Faq/Faq';
 import Hero from '../components/Hero/Hero';
 
 import Image from 'next/image';
@@ -23,17 +20,23 @@ import natureorsmthImage from '../public/assets/images/showcase/natureorsmth.jpg
 import Caption from '../components/Caption/Caption';
 import Head from 'next/head';
 
-const showcaseImages = {
-	juxt: juxtImage,
-	chats: chatsImage,
-	pcmouse: pcmouseImage,
-	wiiuchat: wiiuchatImage,
-	natureorsmth: natureorsmthImage
-};
+const showcase = [{
+	"title": "Discord channels!",
+	"caption": "Get access to exclusive Discord chats, where you'll get to experience the unparalleled professionality, determination, and brilliance of our world-renowned team.",
+	"image": chatsImage
+},
+{
+	"title": "Juxt 4.",
+	"caption": "Juxt 4 is our reimagining of Juxtaposition for the modern era. With a refreshingly modern design and in-game posting support, it's better than, like, anything Nintendo has ever made!",
+	"image": juxtImage
+},
+{
+	"title": "Earth.",
+	"caption": "We made it ourselves.",
+	"image": natureorsmthImage
+}]
 
-export async function getServerSideProps(ctx) {
-	const locale = getLocale(ctx.locale);
-
+export async function getServerSideProps() {
 	const {
 		data: {
 			[0]: { view_count: rickrolledUsers },
@@ -44,13 +47,12 @@ export async function getServerSideProps(ctx) {
 
 	return {
 		props: {
-			locale,
 			rickrolledUsers
 		},
 	};
 }
 
-export default function Home({ locale, rickrolledUsers }) {
+export default function Home({ rickrolledUsers }) {
 	const router = useRouter();
 	return (
 		<main>
@@ -67,12 +69,12 @@ export default function Home({ locale, rickrolledUsers }) {
 						Here are some of the amazing features you&apos;ll get by joining Tester+ for <b>free</b>
 					</Caption>
 				</Section>
-				{locale.showcase.map((element, i) => {
+				{showcase.map((element, i) => {
 					return (
 						<ShowcaseSection
 							title={element.title}
 							caption={element.caption}
-							image={showcaseImages[element.image]}
+							image={element.image}
 							isOdd={i % 2 !== 0}
 							key={i}
 						/>
@@ -83,7 +85,6 @@ export default function Home({ locale, rickrolledUsers }) {
 						src={wiiuchatImage}
 						className={styles.image}
 						alt=""
-						quality={100}
 						sizes="(max-width: 840px) 80vw, 700px"
 					/>
 					<div className={styles.text}>
@@ -102,12 +103,7 @@ export default function Home({ locale, rickrolledUsers }) {
 						</Button>
 					</div>
 				</Section>
-			</div>{/*}
-			<Section>
-				<Title id="faq">{locale.faq.title}</Title>
-				<p className={styles.caption}>{locale.faq.text}</p>
-				<Faq questionObject={locale.faq.QAs} />
-						</Section>{*/}
+			</div>
 		</main>
 	);
 }
